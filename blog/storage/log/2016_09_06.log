@@ -1,0 +1,11 @@
+[ 2016-09-06T01:17:09+08:00 ]EXCEPTION: web\admin\controller\Login 不存在
+[ 2016-09-06T01:17:16+08:00 ]EXCEPTION: web\admin\controller\Login 不存在
+[ 2016-09-06T01:43:39+08:00 ]EXCEPTION: SQLSTATE[HY000] [1045] Acc�s refus� pour l'utilisateur: 'root'@'@localhost' (mot de passe: NON)
+[ 2016-09-06T01:43:54+08:00 ]EXCEPTION: SQLSTATE[HY000] [1045] Acc�s refus� pour l'utilisateur: 'root'@'@localhost' (mot de passe: NON)
+[ 2016-09-06T01:44:06+08:00 ]EXCEPTION: SQLSTATE[HY000] [1045] Acc�s refus� pour l'utilisateur: 'root'@'@localhost' (mot de passe: NON)
+[ 2016-09-06T01:44:46+08:00 ]EXCEPTION: show columns from core_attachment ;BindParams:array (
+)42S02;1146;La table 'c70.core_attachment' n'existe pas
+[ 2016-09-06T01:44:51+08:00 ]EXCEPTION: show columns from core_attachment ;BindParams:array (
+)42S02;1146;La table 'c70.core_attachment' n'existe pas
+[ 2016-09-06T02:02:35+08:00 ]EXCEPTION: web\home\controller\Admin 不存在
+[ 2016-09-06T21:29:30+08:00 ]EXCEPTION: web\aadmin\controller\Index 不存在

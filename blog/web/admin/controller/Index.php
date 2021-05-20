@@ -1,0 +1,21 @@
+<?php   namespace web\admin\controller;
+use hdphp\route\Controller;
+
+/**
+ * Created by PhpStorm.
+ * User: Îä ±ó
+ * Date: 2016/9/6
+ * Time: 0:41
+ */
+class Index extends Common
+{
+    public function index()
+    {
+        //ÏÔÊ¾Ä£°å
+        View::make();
+    }
+    public function add()
+    {
+        View::make();
+    }
+}

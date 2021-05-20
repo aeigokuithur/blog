@@ -1,0 +1,17 @@
+body.admin-login {
+  background: url('../../../../../resource/images/bg1.jpg');
+}
+body.admin-login .logo {
+  margin-top: 100px;
+  margin-bottom: 10px;
+}
+body.admin-login .well {
+  background: #ffffff;
+  opacity: 1;
+  padding: 30px;
+  box-shadow: 0px 0px 100px #dddddd;
+}
+body.admin-login .copyright {
+  color: #666666;
+  font-size: 14px;
+}
