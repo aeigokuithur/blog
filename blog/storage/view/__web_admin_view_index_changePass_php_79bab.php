@@ -1,18 +1,15 @@
-<?php if ( ! defined( 'APP_PATH' ) ) {
-    exit;
-} ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>    <title>快学网后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="<?php echo __ROOT__?>/resource/hdjs/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo __ROOT__?>/resource/css/site.css" rel="stylesheet">
-    <link href="<?php echo __ROOT__?>/resource/hdjs/css/font-awesome.min.css" rel="stylesheet">
-    <script src="<?php echo __ROOT__?>/resource/hdjs/js/jquery.min.js"></script>
-    <script src="<?php echo __ROOT__?>/resource/hdjs/app/util.js"></script>
-    <script src="<?php echo __ROOT__?>/resource/hdjs/require.js"></script>
-    <script src="<?php echo __ROOT__?>/resource/hdjs/app/config.js"></script>
+    <link href="http://127.0.0.1/php/myspl/blog/resource/hdjs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://127.0.0.1/php/myspl/blog/resource/css/site.css" rel="stylesheet">
+    <link href="http://127.0.0.1/php/myspl/blog/resource/hdjs/css/font-awesome.min.css" rel="stylesheet">
+    <script src="http://127.0.0.1/php/myspl/blog/resource/hdjs/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1/php/myspl/blog/resource/hdjs/app/util.js"></script>
+    <script src="http://127.0.0.1/php/myspl/blog/resource/hdjs/require.js"></script>
+    <script src="http://127.0.0.1/php/myspl/blog/resource/hdjs/app/config.js"></script>
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -55,13 +52,12 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="fa fa-w fa-user"></i>
-                            <?php echo $_SESSION['admin']['username']; ?>
-                            <span class="caret"></span>
+                            admin                            <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo U('Index.changePass')?>">修改密码</a></li>
+                            <li><a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/Index/changePass">修改密码</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?php echo U('Login.out')?>">退出</a></li>
+                            <li><a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/Login/out">退出</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -83,7 +79,7 @@
                     </a>
                 </div>
                 <ul class="list-group menus collapse in" id="collapseExample">
-                    <a href="<?php echo U('Category.index')?>" class="list-group-item" >
+                    <a href="" class="list-group-item" >
                         <i class="fa fa-male" aria-hidden="true"></i>
                         <span class="pull-right" href=""></span>
                         学员管理
@@ -130,7 +126,45 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-9 col-lg-10">
-            <!--blade_content-->
+            
+    <ol class="breadcrumb" style="background-color: #f9f9f9;padding:8px 0;margin-bottom:10px;">
+        <li>
+            <a href="javascript:;"><i class="fa fa-cogs"></i>
+                密码管理</a>
+        </li>
+        <li class="active">
+            <a href="javascript:;">修改密码</a>
+        </li>
+    </ol>
+    <form onsubmit="return changePass()" class="form-horizontal" id="form" action="" method="post">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">修改密码</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">原始密码</label>
+                    <div class="col-sm-9">
+                        <input required type="text" name="password"  class="form-control" placeholder="请填写原始密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">新密码</label>
+                    <div class="col-sm-9">
+                        <input required type="text" name="new_password"  class="form-control" placeholder="请填写新密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">确认密码</label>
+                    <div class="col-sm-9">
+                        <input required type="text" name="confirm_password"  class="form-control" placeholder="请填写确认密码">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">确定</button>
+    <input type='hidden' name='__TOKEN__' value='ccd548d6c1b26463ce11fd8e45970d9b'/></form>
+
         </div>
     </div>
 </div>
@@ -146,3 +180,22 @@
 <script>
     require(['bootstrap'],function($){})
 </script>
+
+<script>
+    function changePass()
+    {
+        var data = $("#form").serialize();
+        //$.post('请求地址',{发送数据},返回值,返回值的数据类型)
+        //原生写法
+        $.post("<?php echo u('Index.changePass')?>",data,function(res){
+            if(res.valid)
+            {//如果成功
+                util.message(res.message,'index.php?s=admin/Login/index','success');
+            }else{
+                util.message(res.message,'back','error');
+            }
+        },"json")
+        return false;
+    }
+</script>
+

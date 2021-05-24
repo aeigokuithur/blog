@@ -59,7 +59,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{U('login.changePass')}}">修改密码</a></li>
+                            <li><a href="{{U('Index.changePass')}}">修改密码</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{U('Login.out')}}">退出</a></li>
                         </ul>
@@ -83,7 +83,7 @@
                     </a>
                 </div>
                 <ul class="list-group menus collapse in" id="collapseExample">
-                    <a href="" class="list-group-item" >
+                    <a href="{{U('Category.index')}}" class="list-group-item" >
                         <i class="fa fa-male" aria-hidden="true"></i>
                         <span class="pull-right" href=""></span>
                         学员管理

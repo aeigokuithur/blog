@@ -1,18 +1,15 @@
-<?php if ( ! defined( 'APP_PATH' ) ) {
-    exit;
-} ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>    <title>快学网后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="<?php echo __ROOT__?>/resource/hdjs/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo __ROOT__?>/resource/css/site.css" rel="stylesheet">
-    <link href="<?php echo __ROOT__?>/resource/hdjs/css/font-awesome.min.css" rel="stylesheet">
-    <script src="<?php echo __ROOT__?>/resource/hdjs/js/jquery.min.js"></script>
-    <script src="<?php echo __ROOT__?>/resource/hdjs/app/util.js"></script>
-    <script src="<?php echo __ROOT__?>/resource/hdjs/require.js"></script>
-    <script src="<?php echo __ROOT__?>/resource/hdjs/app/config.js"></script>
+    <link href="http://127.0.0.1/php/myspl/blog/resource/hdjs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://127.0.0.1/php/myspl/blog/resource/css/site.css" rel="stylesheet">
+    <link href="http://127.0.0.1/php/myspl/blog/resource/hdjs/css/font-awesome.min.css" rel="stylesheet">
+    <script src="http://127.0.0.1/php/myspl/blog/resource/hdjs/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1/php/myspl/blog/resource/hdjs/app/util.js"></script>
+    <script src="http://127.0.0.1/php/myspl/blog/resource/hdjs/require.js"></script>
+    <script src="http://127.0.0.1/php/myspl/blog/resource/hdjs/app/config.js"></script>
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -55,13 +52,12 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="fa fa-w fa-user"></i>
-                            <?php echo $_SESSION['admin']['username']; ?>
-                            <span class="caret"></span>
+                            admin                            <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo U('Index.changePass')?>">修改密码</a></li>
+                            <li><a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/Index/changePass">修改密码</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?php echo U('Login.out')?>">退出</a></li>
+                            <li><a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/Login/out">退出</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -83,7 +79,7 @@
                     </a>
                 </div>
                 <ul class="list-group menus collapse in" id="collapseExample">
-                    <a href="<?php echo U('Category.index')?>" class="list-group-item" >
+                    <a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/Category/index" class="list-group-item" >
                         <i class="fa fa-male" aria-hidden="true"></i>
                         <span class="pull-right" href=""></span>
                         学员管理
@@ -130,7 +126,57 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-9 col-lg-10">
-            <!--blade_content-->
+            
+    <ol class="breadcrumb" style="background-color: #f9f9f9;padding:8px 0;margin-bottom:10px;">
+        <li>
+            <a href=""><i class="fa fa-cogs"></i>
+                分类管理</a>
+        </li>
+        <li class="active">
+            <a href="">分类展示</a>
+        </li>
+    </ol>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="<?php echo u('index')?>">分类管理</a></li>
+        <li><a href="<?php echo u('add')?>">添加分类</a></li>
+    </ul>
+    <form action="" method="post">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th width="80">编号</th>
+                        <th>分类名称</th>
+                        <th width="200">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ((array)$data as $k=>$v){?>
+                        <tr>
+                            <td><?php echo $v['cid']?></td>
+                            <td><?php echo $v['_cname']?></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle">操作 <span class="caret"></span></button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="<?php echo u('addSon',['cid'=>$v['cid']])?>">添加子类</a></li>
+                                        <li><a href="<?php echo u('edit',['cid'=>$v['cid']])?>">编辑</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="javascript:;" onclick="del(<?php echo $v['cid']?>)">删除</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php }?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <input type='hidden' name='__TOKEN__' value='0c4322327d4f29bf0101f5815bd7659b'/></form>
+    <div class="pagination pagination-sm pull-right">
+    </div>
+
         </div>
     </div>
 </div>
@@ -145,4 +191,24 @@
 </html>
 <script>
     require(['bootstrap'],function($){})
+</script>
+
+<script>
+    function del(cid)
+    {
+        var obj = util.modal({
+            title:'确认删除？',//标题
+            content:'',//内容
+            footer:'<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button><button type="button" class="btn btn-danger confirm" data-dismiss="modal">确定</button>',//底部
+            width:600,//宽度
+            events:{
+                confirm:function(){
+                    //哪个元素上有.confirm类，被点击就执行这个回调
+                    location.href = "<?php echo u('del')?>" + '&cid=' + cid;
+                }
+            }
+        });
+        //显示模态框
+        obj.modal('show');
+    }
 </script>

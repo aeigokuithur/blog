@@ -15,7 +15,7 @@ return [
 	//密码
 	'password' => '',
 	//数据库
-	'database' => 'blog',
+	'database' => 'blog_edu',
 	//表前缀
-	'prefix'   => 'blog_'
+	'prefix'   => ''
 ];

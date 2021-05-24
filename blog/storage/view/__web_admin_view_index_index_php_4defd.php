@@ -55,7 +55,7 @@
                             admin                            <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/login/changePass">修改密码</a></li>
+                            <li><a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/Index/changePass">修改密码</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/Login/out">退出</a></li>
                         </ul>
@@ -79,7 +79,7 @@
                     </a>
                 </div>
                 <ul class="list-group menus collapse in" id="collapseExample">
-                    <a href="" class="list-group-item" >
+                    <a href="http://127.0.0.1/php/myspl/blog/index.php?s=admin/Category/index" class="list-group-item" >
                         <i class="fa fa-male" aria-hidden="true"></i>
                         <span class="pull-right" href=""></span>
                         学员管理
@@ -154,7 +154,7 @@
                     </tbody>
                 </table>
         </div>
-    <input type='hidden' name='__TOKEN__' value='7c75bee27e09fe19398dfdf4921ed7c9'/></form>
+    <input type='hidden' name='__TOKEN__' value='0c4322327d4f29bf0101f5815bd7659b'/></form>
 
         </div>
     </div>

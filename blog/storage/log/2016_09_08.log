@@ -1,0 +1,5 @@
+[ 2016-09-08T15:29:32+08:00 ]EXCEPTION: Method web\admin\controller\Login::__empty() does not exist
+[ 2016-09-08T15:36:17+08:00 ]EXCEPTION: Method web\admin\controller\Login::__empty() does not exist
+[ 2016-09-08T15:36:19+08:00 ]EXCEPTION: Method web\admin\controller\Login::__empty() does not exist
+[ 2016-09-08T19:23:55+08:00 ]EXCEPTION: Method web\admin\controller\Category::__empty() does not exist
+[ 2016-09-08T20:50:29+08:00 ]EXCEPTION: Method web\admin\controller\Category::__empty() does not exist

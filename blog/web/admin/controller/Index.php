@@ -1,21 +1,35 @@
 <?php   namespace web\admin\controller;
-use hdphp\route\Controller;
 
 /**
  * Created by PhpStorm.
- * User: Îä ±ó
+ * User: ï¿½ï¿½ ï¿½ï¿½
  * Date: 2016/9/6
  * Time: 0:41
  */
 class Index extends Common
 {
+    private $db;
+    public function __construct()
+    {
+        $this->db = new \system\model\User();
+    }
     public function index()
     {
-        //ÏÔÊ¾Ä£°å
+        //æ˜¾ç¤ºæ¨¡æ¿
         View::make();
     }
     public function add()
     {
+        View::make();
+    }
+    //	ä¿®æ”¹å¯†ç 
+    public function changePass(){
+        if ($_POST){
+            if ($this->db->changePass()){
+                message('æ“ä½œæˆåŠŸ',u('index.index'),success);
+            }
+            message($this->db->getError(),'back',"error");
+        }
         View::make();
     }
 }

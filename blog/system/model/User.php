@@ -1,6 +1,6 @@
 <?php namespace system\model;
 
-use hdphp\Model\Model;
+use hdphp\model\Model;
 
 class User extends Model
 {
