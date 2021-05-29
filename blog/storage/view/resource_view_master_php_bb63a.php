@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>    <title>快学网后台管理系统</title>
+    <meta charset="utf-8"/>    <title>C70博客系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="<?php echo __ROOT__?>/resource/hdjs/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo __ROOT__?>/resource/css/site.css" rel="stylesheet">
@@ -55,13 +55,13 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="fa fa-w fa-user"></i>
-                            <?php echo $_SESSION['admin']['username']; ?>
+                            <?php echo $_SESSION['admin']['username'];?>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo U('Index.changePass')?>">修改密码</a></li>
+                            <li><a href="<?php echo u('Index.changePass')?>">修改密码</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?php echo U('Login.out')?>">退出</a></li>
+                            <li><a href="<?php echo u('login.out')?>">退出</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -75,18 +75,23 @@
     <div class="row">
         <div class="col-xs-12 col-sm-3 col-lg-2 left-menu">
             <div class="panel panel-default" id="menus" >
-                <!--学员管理菜单-->
+                <!--分类管理-->
                 <div class="panel-heading" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="border-top: 1px solid #ddd;border-radius: 0%">
-                    <h4 class="panel-title">学员管理菜单</h4>
+                    <h4 class="panel-title">分类管理</h4>
                     <a class="panel-collapse" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                         <i class="fa fa-chevron-circle-down"></i>
                     </a>
                 </div>
                 <ul class="list-group menus collapse in" id="collapseExample">
-                    <a href="<?php echo U('Category.index')?>" class="list-group-item" >
-                        <i class="fa fa-male" aria-hidden="true"></i>
+                    <a href="<?php echo u('category.index')?>" class="list-group-item" >
+                        <i class="fa fa-align-center" aria-hidden="true"></i>
                         <span class="pull-right" href=""></span>
-                        学员管理
+                        分类列表
+                    </a>
+                    <a href="<?php echo u('category.add')?>" class="list-group-item" >
+                        <i class="fa fa-arrows" aria-hidden="true"></i>
+                        <span class="pull-right" href=""></span>
+                        分类添加
                     </a>
                 </ul>
                 <!--学员管理菜单 end-->
